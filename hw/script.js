@@ -1,33 +1,42 @@
-//Змінні
-let ibanez = 15.678;
-let gibson = 123.965;
-let fender = 90.2345;
+const ibanez = 15.678;
+const gibson = 123.965;
+const fender = 90.2345;
 
-//Використовуючи вбудований об'єкт Math – виведіть максимальне число
-console.log(Math.max(ibanez, gibson, fender));
+console.log("Максимальна ціна:", Math.max(ibanez, gibson, fender));
 
-//Використовуючи вбудований об'єкт Math – виведіть мінімальне число
-console.log(Math.min(ibanez, gibson, fender));
+console.log("Мінімальна ціна:", Math.min(ibanez, gibson, fender));
 
-//Складіть вартість всіх товарів, помістіть її в змінну та виведіть цю суму
-let guitars = ibanez + gibson + fender;
-console.log(guitars);
+const guitars = ibanez + gibson + fender;
+console.log("Загальна вартість:", guitars);
 
-//Відкиньте копійки у всіх товарів, потім – складіть цілу частину вартості кожного товару між собою. Округлення використовувати в МЕНЬШУ сторону.
-ibanez = Math.floor(ibanez);
-gibson = Math.floor(gibson);
-fender = Math.floor(fender);
-guitars = ibanez + gibson + fender;
-console.log(guitars);
+const floorIbanez = Math.floor(ibanez);
+const floorGibson = Math.floor(gibson);
+const floorFender = Math.floor(fender);
+const floorGuitars = floorIbanez + floorGibson + floorFender;
+console.log("Округлена ціна:", floorGuitars);
 
-//Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300)
-console.log(Math.round(guitars / 100) * 100);
+console.log("Округлена до сотень ціна:", Math.round(floorGuitars / 100) * 100);
 
-//Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
-if (guitars % 2 === 0) {
-    console.log("Парне");
+if (floorGuitars % 2 === 0) {
+    console.log("Загальна вартість є парним числом");
 } 
 else {
-    console.log("Непарне");
+    console.log("Загальна вартість є непарним числом");
 }
+
+const customerMoney = 500;
+console.log("Решта з 500грн:", customerMoney - guitars);
+
+const averagePrice = (ibanez + gibson + fender) / 3;
+console.log("Середня ціна:", +averagePrice.toFixed(2));
+
+const discount = Math.round(Math.random() * 100) / 100;
+const discountPercentage = Math.trunc(discount * 100);
+const discoutUah = +(guitars * discount).toFixed(2);
+console.log("Знижка", discountPercentage, "%");
+console.log("Ціна зі знижкою:", +(guitars - (guitars * discount)).toFixed(2));
+
+const profit = +(guitars / 2).toFixed(2);
+console.log("Собівартість:", profit);
+console.log("Чистий прибуток:", +(profit - discoutUah).toFixed(2));
 
