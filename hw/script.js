@@ -29,20 +29,23 @@ else
 console.log(oddEven(floorGuitars));
 
 const customerMoney = 500;
-console.log("Решта з 500грн:", customerMoney - guitars);
+const customerChange = customerMoney - guitars;
+console.log("Решта з 500грн:", customerChange);
 
-const averagePrice = (ibanez + gibson + fender) / 3;
-console.log("Середня ціна:", +averagePrice.toFixed(2));
+const averagePrice = +((ibanez + gibson + fender) / 3).toFixed(2);
+console.log("Середня ціна:", averagePrice);
 
 const discount = Math.round(Math.random() * 100) / 100;
 const discountPercentage = Math.trunc(discount * 100);
 const discountUah = +(guitars * discount).toFixed(2);
+const discountPrice = +(guitars - (guitars * discount)).toFixed(2);
 console.log("Знижка:", discountPercentage, "%");
-console.log("Ціна зі знижкою:", +(guitars - (guitars * discount)).toFixed(2));
+console.log("Ціна зі знижкою:", discountPrice);
 
-const profit = +(guitars / 2).toFixed(2);
-console.log("Собівартість:", profit);
-console.log("Чистий прибуток:", +(profit - discountUah).toFixed(2));
+const cost = +(guitars / 2).toFixed(2);
+const profit = +(cost - discountUah).toFixed(2);
+console.log("Собівартість:", cost);
+console.log("Чистий прибуток:", profit);
 
 console.log(`Максимальна ціна: ${maxPrice}
 Мінімальна ціна: ${minPrice}
@@ -50,9 +53,9 @@ console.log(`Максимальна ціна: ${maxPrice}
 Округлена ціна: ${floorGuitars}
 Округлена до сотень ціна: ${roundPrice}
 ${oddEven(floorGuitars)}
-Решта з 500грн: ${customerMoney - guitars}
-Середня ціна: ${averagePrice.toFixed(2)}
+Решта з 500грн: ${customerChange}
+Середня ціна: ${averagePrice}
 Знижка: ${discountPercentage} %
-Ціна зі знижкою: ${(guitars - (guitars * discount)).toFixed(2)}
-Собівартість: ${profit}
-Чистий прибуток: ${(profit - discountUah).toFixed(2)}`)
+Ціна зі знижкою: ${discountPrice}
+Собівартість: ${cost}
+Чистий прибуток: ${profit}`)
