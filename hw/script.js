@@ -1,60 +1,60 @@
-const ibanez = 15.678;
-const gibson = 123.965;
-const fender = 90.2345;
+const ibanezPrice = 15.678;
+const gibsonPrice = 123.965;
+const fenderPrice = 90.2345;
 
-const maxPrice = Math.max(ibanez, gibson, fender);
+const maxPrice = Math.max(ibanezPrice, gibsonPrice, fenderPrice);
 console.log("Максимальна ціна:", maxPrice);
 
-const minPrice = Math.min(ibanez, gibson, fender);
+const minPrice = Math.min(ibanezPrice, gibsonPrice, fenderPrice);
 console.log("Мінімальна ціна:", minPrice);
 
-const guitars = ibanez + gibson + fender;
-console.log("Загальна вартість:", guitars);
+const guitarsPrice = ibanezPrice + gibsonPrice + fenderPrice;
+console.log("Загальна вартість:", guitarsPrice);
 
-const floorIbanez = Math.floor(ibanez);
-const floorGibson = Math.floor(gibson);
-const floorFender = Math.floor(fender);
-const floorGuitars = floorIbanez + floorGibson + floorFender;
-console.log("Округлена ціна:", floorGuitars);
+const roundedIbanezPrice = Math.floor(ibanezPrice);
+const roundedGibsonPrice = Math.floor(gibsonPrice);
+const roundedFenderPrice = Math.floor(fenderPrice);
+const roundedGuitarsPrice = roundedIbanezPrice + roundedGibsonPrice + roundedFenderPrice;
+console.log("Округлена ціна:", roundedGuitarsPrice);
 
-const roundPrice = Math.round(floorGuitars / 100) * 100;
-console.log("Округлена до сотень ціна:", roundPrice);
+const roundedToHundredGuitarsPrice = Math.round(roundedGuitarsPrice / 100) * 100;
+console.log("Округлена до сотень ціна:", roundedToHundredGuitarsPrice);
 
-function oddEven(floorGuitars) {
-if (floorGuitars % 2 === 0)
+function oddEven(roundedGuitarsPrice) {
+if (roundedGuitarsPrice % 2 === 0)
     return "Загальна вартість є парним числом";
 else
     return "Загальна вартість є непарним числом";
 }
-console.log(oddEven(floorGuitars));
+console.log(oddEven(roundedGuitarsPrice));
 
 const customerMoney = 500;
-const customerChange = customerMoney - guitars;
+const customerChange = customerMoney - guitarsPrice;
 console.log("Решта з 500грн:", customerChange);
 
-const averagePrice = +((ibanez + gibson + fender) / 3).toFixed(2);
-console.log("Середня ціна:", averagePrice);
+const averageGuitarsPrice = +((ibanezPrice + gibsonPrice + fenderPrice) / 3).toFixed(2);
+console.log("Середня ціна:", averageGuitarsPrice);
 
 const discount = Math.round(Math.random() * 100) / 100;
 const discountPercentage = Math.trunc(discount * 100);
-const discountUah = +(guitars * discount).toFixed(2);
-const discountPrice = +(guitars - (guitars * discount)).toFixed(2);
+const discountUah = +(guitarsPrice * discount).toFixed(2);
+const discountPrice = +(guitarsPrice - discountUah).toFixed(2);
 console.log("Знижка:", discountPercentage, "%");
 console.log("Ціна зі знижкою:", discountPrice);
 
-const cost = +(guitars / 2).toFixed(2);
-const profit = +(cost - discountUah).toFixed(2);
+const cost = +(guitarsPrice / 2).toFixed(2);
+const profit = cost - discountUah;
 console.log("Собівартість:", cost);
 console.log("Чистий прибуток:", profit);
 
 console.log(`Максимальна ціна: ${maxPrice}
 Мінімальна ціна: ${minPrice}
-Загальна вартість: ${guitars}
-Округлена ціна: ${floorGuitars}
-Округлена до сотень ціна: ${roundPrice}
-${oddEven(floorGuitars)}
+Загальна вартість: ${guitarsPrice}
+Округлена ціна: ${roundedGuitarsPrice}
+Округлена до сотень ціна: ${roundedToHundredGuitarsPrice}
+${oddEven(roundedGuitarsPrice)}
 Решта з 500грн: ${customerChange}
-Середня ціна: ${averagePrice}
+Середня ціна: ${averageGuitarsPrice}
 Знижка: ${discountPercentage} %
 Ціна зі знижкою: ${discountPrice}
 Собівартість: ${cost}
